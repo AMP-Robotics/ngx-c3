@@ -16,5 +16,4 @@
     "@angular/core": "^8.2.3",
     "c3": "^0.7.8"
   },
-  "schematics": "./schematics/collection.json"
 }
