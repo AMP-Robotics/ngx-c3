@@ -1,0 +1,20 @@
+{
+  "name": "ngx-c3",
+  "version": "0.0.1",
+  "description": "An Angular library for creating c3 charts",
+  "keywords": [
+    "angular",
+    "c3",
+    "d3"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/AMP-Robotics/ngx-c3",
+  "repository": "github:AMP-Robotics/ngx-c3",
+  "bugs": "https://github.com/AMP-Robotics/ngx-c3/issues",
+  "peerDependencies": {
+    "@angular/common": "^8.2.3",
+    "@angular/core": "^8.2.3",
+    "c3": "^0.7.8"
+  },
+  "schematics": "./schematics/collection.json"
+}
