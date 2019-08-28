@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-c3-lib": [
+        "dist/ngx-c3-lib"
+      ],
+      "ngx-c3-lib/*": [
+        "dist/ngx-c3-lib/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
