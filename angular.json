@@ -37,6 +37,129 @@
           }
         }
       }
+    },
+    "ngx-c3-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/ngx-c3-app",
+      "sourceRoot": "projects/ngx-c3-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ngx-c3-app",
+            "index": "projects/ngx-c3-app/src/index.html",
+            "main": "projects/ngx-c3-app/src/main.ts",
+            "polyfills": "projects/ngx-c3-app/src/polyfills.ts",
+            "tsConfig": "projects/ngx-c3-app/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/ngx-c3-app/src/favicon.ico",
+              "projects/ngx-c3-app/src/assets"
+            ],
+            "styles": [
+              "node_modules/c3/c3.min.css",
+              "projects/ngx-c3-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ngx-c3-app/src/environments/environment.ts",
+                  "with": "projects/ngx-c3-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ngx-c3-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ngx-c3-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ngx-c3-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-c3-app/src/test.ts",
+            "polyfills": "projects/ngx-c3-app/src/polyfills.ts",
+            "tsConfig": "projects/ngx-c3-app/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-c3-app/karma.conf.js",
+            "assets": [
+              "projects/ngx-c3-app/src/favicon.ico",
+              "projects/ngx-c3-app/src/assets"
+            ],
+            "styles": [
+              "projects/ngx-c3-app/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-c3-app/tsconfig.app.json",
+              "projects/ngx-c3-app/tsconfig.spec.json",
+              "projects/ngx-c3-app/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ngx-c3-app/e2e/protractor.conf.js",
+            "devServerTarget": "ngx-c3-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ngx-c3-app:serve:production"
+            }
+          }
+        }
+      }
     }},
   "defaultProject": "ngx-c3-lib"
 }
